@@ -7,7 +7,7 @@ export ZSH=$HOME/.oh-my-zsh
 # Set name of the theme to load. Optionally, if you set this to "random"
 # it'll load a random theme each time that oh-my-zsh is loaded.
 # See https://github.com/robbyrussell/oh-my-zsh/wiki/Themes
-ZSH_THEME="agnoster"
+ZSH_THEME="../../Projects/zsh-theme/jbakerdev"
 
 # Uncomment the following line to use case-sensitive completion.
 # CASE_SENSITIVE="true"
@@ -51,7 +51,7 @@ ZSH_THEME="agnoster"
 # Custom plugins may be added to ~/.oh-my-zsh/custom/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
 # Add wisely, as too many plugins slow down shell startup.
-plugins=(rails git ruby perl docker)
+plugins=(rails brew git ruby perl docker)
 
 source $ZSH/oh-my-zsh.sh
 
@@ -86,29 +86,13 @@ source $ZSH/oh-my-zsh.sh
 alias ls="ls -G"
 alias vizsh="vi ~/.zshrc"
 alias logs="lnav /usr/local/var/log"
-alias cptunnel="ssh -L 4200:127.0.0.1:4243 root@10.2.2.139 -Nv"
+alias logs_http="lnav /usr/local/var/log/httpd"
 alias dotfiles='/usr/bin/git --git-dir=$HOME/.dotfiles/ --work-tree=$HOME'
+
+alias grbas='git rebase -i --autosquash'
+alias gcfu='git commit --fixup'
+
+alias dbicm='perl -I. Acta/Schema/MigrationScript.pm'
 
 export LSCOLORS=gxfxbEaEBxxEhEhBaDaCaD
 
-# Homebrew
-export PATH=/usr/local/bin:$PATH
-
-# MariaDB stuff
-export PATH="/usr/local/opt/mariadb@10.1/bin:$PATH"
-
-# rbenv stuff
-eval "$(rbenv init -)"
-export PATH="$HOME/.rbenv/bin:$PATH"
-
-# npm stuff
-export PATH="$HOME/.node_modules_global/bin:$PATH"
-
-# Python stuff
-export PATH="/Users/baker/Library/Python/3.7/bin:$PATH"
-
-# item2 stuff
-export ITERM_ENABLE_SHELL_INTEGRATION_WITH_TMUX=YES
-
-test -e "${HOME}/.iterm2_shell_integration.zsh" && source "${HOME}/.iterm2_shell_integration.zsh"
-export PATH=/Users/baker/.pyenv/versions/3.7.2/bin:$PATH
