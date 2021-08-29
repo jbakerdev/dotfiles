@@ -7,7 +7,7 @@ export ZSH=$HOME/.oh-my-zsh
 # Set name of the theme to load. Optionally, if you set this to "random"
 # it'll load a random theme each time that oh-my-zsh is loaded.
 # See https://github.com/robbyrussell/oh-my-zsh/wiki/Themes
-ZSH_THEME="../../Projects/zsh-theme/jbakerdev"
+ZSH_THEME="agnoster"
 
 # Uncomment the following line to use case-sensitive completion.
 # CASE_SENSITIVE="true"
@@ -51,7 +51,7 @@ ZSH_THEME="../../Projects/zsh-theme/jbakerdev"
 # Custom plugins may be added to ~/.oh-my-zsh/custom/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
 # Add wisely, as too many plugins slow down shell startup.
-plugins=(rails brew git ruby perl docker)
+plugins=(yum git perl docker)
 
 source $ZSH/oh-my-zsh.sh
 
@@ -85,8 +85,7 @@ source $ZSH/oh-my-zsh.sh
 # alias ohmyzsh="mate ~/.oh-my-zsh"
 alias ls="ls -G"
 alias vizsh="vi ~/.zshrc"
-alias logs="lnav /usr/local/var/log"
-alias logs_http="lnav /usr/local/var/log/httpd"
+
 alias dotfiles='/usr/bin/git --git-dir=$HOME/.dotfiles/ --work-tree=$HOME'
 
 alias grbas='git rebase -i --autosquash'
