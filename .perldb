@@ -1,0 +1,56 @@
+# vim: syntax=perl
+
+$DB::deep = 5000;
+my $skip;
+my @classes;
+
+BEGIN {
+    @classes = sort (
+        'Catalyst',
+        'Moo',
+        'Moose',
+        'DateTime::Format',
+        'DBIx::Class',
+        'Eval::Closure',
+        'Eval::TypeTiny',
+        'Module::Runtime',
+        'Class::MOP',
+        'Attribute::Handlers',
+        'SQL::Abstract',
+        'Test::',
+        'Try::Tiny',
+        'mro',
+        'Class::Accessor',
+        'Test2',
+        'Test2::API',
+        'Sub::Quote'
+    );
+    
+    # show the location of the debugger. This is useful if they're using a custom debugger.
+    my $debugger = $INC{'perl5db.pl'} || die 'PANIC: debugger not found in %INC!';
+    print "\nUsing debugger '$debugger'\n";
+    
+    if ( $ENV{DB_ALLOW} ) {
+        if ( ':all' eq $ENV{DB_ALLOW} ) {
+            @classes = ();
+        }
+        else {
+            @classes = grep { !/$ENV{DB_ALLOW}/ } @classes;
+        }
+    }
+    
+    my $classes = join "\n    " => @classes;
+    my $re      = join '|'      => @classes;
+    
+    $skip = "^(?:$re)";
+    print STDERR <<"END" unless $ENV{NO_DB_SKIP};
+Debugger skipping:
+    $classes
+See ~/.perldb if you don't like this behavior, or set NO_DB_SKIP=1
+END
+}
+
+unless ( $ENV{NO_DB_SKIP} ) {
+    eval "use DB::Skip pkgs => [qr/$skip/]" if @classes;
+}
+
