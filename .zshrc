@@ -83,16 +83,32 @@ source $ZSH/oh-my-zsh.sh
 # Example aliases
 # alias zshconfig="mate ~/.zshrc"
 # alias ohmyzsh="mate ~/.oh-my-zsh"
+
+# Shell
 alias ls="ls -G"
-alias vizsh="vi ~/.zshrc"
-alias logs="lnav /usr/local/var/log"
-alias logs_http="lnav /usr/local/var/log/httpd"
-alias dotfiles='/usr/bin/git --git-dir=$HOME/.dotfiles/ --work-tree=$HOME'
-
-alias grbas='git rebase -i --autosquash'
-alias gcfu='git commit --fixup'
-
-alias dbicm='perl -I. Acta/Schema/MigrationScript.pm'
+alias df="df -h"
 
 export LSCOLORS=gxfxbEaEBxxEhEhBaDaCaD
 
+# Zsh
+alias zshconfig="vi ~/.zshrc ~/.zshenv ~/.zprofile"
+alias zshrc="vim ~/.zshrc"
+alias zshenv="vim ~/.zshenv"
+alias zprofile="vim ~/.zprofile"
+
+# Git
+alias grbas='git rebase -i --autosquash'
+alias gcfu='git commit --fixup'
+alias gclfx='git clean -f -X --exclude="!.idea"'
+
+# Perl
+alias ce='carton exec'
+alias dbicm='carton exec perl -Ilib lib/Arctos/Schema/MigrationScript.pm'
+alias rex='rex -f ~/Projects/Rex/Rexfile'
+
+# Apps
+alias kraken='open -na "GitKraken" --args -p $(pwd)'
+
+# Dev
+alias logs="lnav /opt/homebrew/var/log"
+alias logs_http="lnav /opt/homebrew/var/log/httpd"
