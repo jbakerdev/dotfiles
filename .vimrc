@@ -16,9 +16,9 @@ syntax on
 set ruler
 
 augroup apache
-    autocmd BufWritePost /usr/local/etc/httpd/* !/usr/local/bin/brew services restart httpd
+    autocmd BufWritePost /opt/homebrew/etc/httpd/* !/opt/homebrew/bin/brew services restart httpd
 augroup END
 
 augroup dnsmasq
-    autocmd BufWritePost /usr/local/etc/dnsmasq.conf !sudo /usr/local/bin/brew services restart dnsmasq && dscacheutil -flushcache && sudo killall -HUP mDNSResponder
+    autocmd BufWritePost /opt/homebrew/etc/dnsmasq.conf !sudo /opt/homebrew/bin/brew services restart dnsmasq && dscacheutil -flushcache && sudo killall -HUP mDNSResponder
 augroup END
