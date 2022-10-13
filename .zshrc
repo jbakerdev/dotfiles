@@ -101,6 +101,9 @@ alias grbas='git rebase -i --autosquash'
 alias gcfu='git commit --fixup'
 alias gclfx='git clean -f -X --exclude="!.idea"'
 
+# Ruby
+alias r='bin/rails'
+
 # Perl
 alias ce='carton exec'
 alias dbicm='carton exec perl -Ilib lib/Arctos/Schema/MigrationScript.pm'
