@@ -16,7 +16,7 @@ syntax on
 set ruler
 
 augroup apache
-    autocmd BufWritePost /opt/homebrew/etc/httpd/* !/opt/homebrew/bin/brew services restart httpd
+    autocmd BufWritePost /opt/homebrew/etc/httpd/* !apachectl configtest && /opt/homebrew/bin/brew services restart httpd
 augroup END
 
 augroup dnsmasq
