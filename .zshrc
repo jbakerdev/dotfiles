@@ -88,6 +88,8 @@ source $ZSH/oh-my-zsh.sh
 alias ls="ls -G"
 alias df="df -h"
 
+eval $(thefuck --alias)
+
 export LSCOLORS=gxfxbEaEBxxEhEhBaDaCaD
 
 # Zsh
